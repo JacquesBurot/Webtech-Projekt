@@ -51,6 +51,16 @@ public class EventService {
         return transformEntity(eventEntity);
     }
 
+    public boolean deleteById(Long id) {
+        if(!eventRepository.existsById(id)){
+            return false;
+        }
+
+        eventRepository.deleteById(id);
+        return true;
+
+    }
+
     private Event transformEntity(EventEntity eventEntity) {
         return new Event(
                 eventEntity.getId(),

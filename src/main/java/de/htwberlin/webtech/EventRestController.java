@@ -42,4 +42,10 @@ public class EventRestController {
         var event = eventService.update(id, request);
         return event != null? ResponseEntity.ok(event): ResponseEntity.notFound().build();
     }
+
+    @DeleteMapping(path = "/api/v1/events/{id}")
+    public ResponseEntity<Void> deleteEvent(@PathVariable Long id) {
+        boolean successful = eventService.deleteById(id);
+        return successful? ResponseEntity.ok().build() : ResponseEntity.notFound().build();
+    }
 }
