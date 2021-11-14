@@ -5,10 +5,7 @@ import de.htwberlin.webtech.api.EventCreateRequest;
 import de.htwberlin.webtech.persistence.EventRepository;
 import de.htwberlin.webtech.service.EventService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -26,6 +23,12 @@ public class EventRestController {
     @GetMapping(path = "/api/v1/events")
     public ResponseEntity<List<Event>> fetchEvents() {
         return ResponseEntity.ok(eventService.findAll());
+    }
+
+    @GetMapping(path = "/api/v1/events/{id}")
+    public ResponseEntity<Event> fetchEventById(@PathVariable Long id) {
+        var event = eventService.findById(id);
+        return event != null? ResponseEntity.ok(event): ResponseEntity.notFound().build();
     }
 
     @PostMapping(path = "/api/v1/events")

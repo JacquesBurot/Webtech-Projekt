@@ -25,6 +25,11 @@ public class EventService {
                 .collect(Collectors.toList());
     }
 
+    public Event findById(Long id) {
+        var eventEntity = eventRepository.findById(id);
+        return eventEntity.isPresent()? transformEntity((eventEntity.get())): null;
+    }
+
     public Event create(EventCreateRequest request) {
         var eventEntity = new EventEntity(request.getEventName(), request.getDjName(), request.isZweiG());
         eventEntity = eventRepository.save(eventEntity);
