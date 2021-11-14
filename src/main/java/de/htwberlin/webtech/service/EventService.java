@@ -1,7 +1,7 @@
 package de.htwberlin.webtech.service;
 
 import de.htwberlin.webtech.api.Event;
-import de.htwberlin.webtech.api.EventCreateRequest;
+import de.htwberlin.webtech.api.EventManipulationRequest;
 import de.htwberlin.webtech.persistence.EventEntity;
 import de.htwberlin.webtech.persistence.EventRepository;
 import org.springframework.stereotype.Service;
@@ -30,9 +30,24 @@ public class EventService {
         return eventEntity.isPresent()? transformEntity((eventEntity.get())): null;
     }
 
-    public Event create(EventCreateRequest request) {
+    public Event create(EventManipulationRequest request) {
         var eventEntity = new EventEntity(request.getEventName(), request.getDjName(), request.isZweiG());
         eventEntity = eventRepository.save(eventEntity);
+        return transformEntity(eventEntity);
+    }
+
+    public Event update(Long id, EventManipulationRequest request) {
+        var eventEntityOptional = eventRepository.findById(id);
+        if(eventEntityOptional.isEmpty()) {
+            return null;
+        }
+
+        var eventEntity = eventEntityOptional.get();
+        eventEntity.setEventName(request.getEventName());
+        eventEntity.setDjName(request.getDjName());
+        eventEntity.setZweiG(request.isZweiG());
+        eventEntity = eventRepository.save(eventEntity);
+
         return transformEntity(eventEntity);
     }
 

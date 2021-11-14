@@ -1,8 +1,7 @@
 package de.htwberlin.webtech;
 
 import de.htwberlin.webtech.api.Event;
-import de.htwberlin.webtech.api.EventCreateRequest;
-import de.htwberlin.webtech.persistence.EventRepository;
+import de.htwberlin.webtech.api.EventManipulationRequest;
 import de.htwberlin.webtech.service.EventService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -32,9 +31,15 @@ public class EventRestController {
     }
 
     @PostMapping(path = "/api/v1/events")
-    public ResponseEntity<Void> createEvent(@RequestBody EventCreateRequest request) throws URISyntaxException {
+    public ResponseEntity<Void> createEvent(@RequestBody EventManipulationRequest request) throws URISyntaxException {
         var event = eventService.create(request);
         URI uri = new URI("/api/v1/events/" + event.getId());
         return ResponseEntity.created(uri).build();
+    }
+
+    @PutMapping(path = "/api/v1/events/{id}")
+    public ResponseEntity<Event> updateEvent(@PathVariable Long id, @RequestBody EventManipulationRequest request) {
+        var event = eventService.update(id, request);
+        return event != null? ResponseEntity.ok(event): ResponseEntity.notFound().build();
     }
 }

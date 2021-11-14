@@ -1,11 +1,11 @@
 package de.htwberlin.webtech.api;
 
-public class EventCreateRequest {
+public class EventManipulationRequest {
     private String eventName;
     private String djName;
     private boolean zweiG;
 
-    public EventCreateRequest(String eventName, String djName, boolean zweiG) {
+    public EventManipulationRequest(String eventName, String djName, boolean zweiG) {
         this.eventName = eventName;
         this.djName = djName;
         this.zweiG = zweiG;
