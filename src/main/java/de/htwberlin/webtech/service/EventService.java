@@ -66,7 +66,8 @@ public class EventService {
                 eventEntity.getId(),
                 eventEntity.getEventName(),
                 eventEntity.getDjName(),
-                eventEntity.isZweiG()
+                eventEntity.isZweiG(),
+
         );
     }
 }
