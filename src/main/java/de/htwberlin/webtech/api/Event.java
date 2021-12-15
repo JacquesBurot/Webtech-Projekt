@@ -12,11 +12,12 @@ public class Event {
     private String djName;
     private boolean zweiG;
 
-    public Event(long id, String eventName, boolean concert, String djName, boolean zweiG) {
+    public Event(long id, String eventName,  String djName, boolean zweiG, boolean concert) {
         this.id = id;
         this.eventName = eventName;
         this.djName = djName;
         this.zweiG = zweiG;
+        this.concert = concert;
     }
 
     public Event() {

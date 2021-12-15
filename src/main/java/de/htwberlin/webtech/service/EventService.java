@@ -46,6 +46,7 @@ public class EventService {
         eventEntity.setEventName(request.getEventName());
         eventEntity.setDjName(request.getDjName());
         eventEntity.setZweiG(request.isZweiG());
+        eventEntity.setConcert(request.isConcert());
         eventEntity = eventRepository.save(eventEntity);
 
         return transformEntity(eventEntity);
@@ -67,6 +68,7 @@ public class EventService {
                 eventEntity.getEventName(),
                 eventEntity.getDjName(),
                 eventEntity.isZweiG(),
+                eventEntity.isConcert()
 
         );
     }

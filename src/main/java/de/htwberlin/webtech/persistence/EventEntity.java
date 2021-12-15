@@ -20,13 +20,18 @@ public class EventEntity {
     @Column(name = "zwei_g")
     private boolean zweiG;
 
+    @Column(name = "concert")
+    private boolean concert;
+
     public EventEntity(String eventName, String djName, boolean zweiG) {
         this.eventName = eventName;
         this.djName = djName;
         this.zweiG = zweiG;
+        this.concert = concert;
     }
 
-    protected EventEntity() {}
+    protected EventEntity() {
+    }
 
     public long getId() {
         return id;
@@ -44,6 +49,10 @@ public class EventEntity {
         return zweiG;
     }
 
+    public boolean isConcert() {
+        return concert;
+    }
+
     public void setEventName(String eventName) {
         this.eventName = eventName;
     }
@@ -55,4 +64,12 @@ public class EventEntity {
     public void setZweiG(boolean zweiG) {
         this.zweiG = zweiG;
     }
+
+    public void setConcert(boolean concert) {
+        this.concert = concert;
+    }
+
+
+
+
 }
