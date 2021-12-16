@@ -3,7 +3,7 @@ package de.htwberlin.webtech.api;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-@Entity(name = "persons")
+@Entity(name = "events")
 public class Event {
 
     private long id;

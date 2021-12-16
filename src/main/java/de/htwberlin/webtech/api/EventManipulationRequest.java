@@ -13,6 +13,8 @@ public class EventManipulationRequest {
         this.concert = concert;
     }
 
+    public EventManipulationRequest() {}
+
     public void setEventName(String eventName) {
         this.eventName = eventName;
     }
