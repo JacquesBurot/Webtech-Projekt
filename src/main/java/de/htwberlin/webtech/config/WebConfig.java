@@ -12,11 +12,11 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-       registry.addMapping("*")
+       registry.addMapping("/**")
                .allowedMethods("*")
                .allowedOrigins(
-                       "http://localhost:7000",
-                      " https://webtech-event-frontend.herokuapp.com"
+                       "http://localhost:7070",
+                      "https://webtech-event-frontend.herokuapp.com"
                );
     }
 }

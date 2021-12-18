@@ -31,7 +31,7 @@ public class EventService {
     }
 
     public Event create(EventManipulationRequest request) {
-        var eventEntity = new EventEntity(request.getEventName(), request.getDjName(), request.isZweiG());
+        var eventEntity = new EventEntity(request.getEventName(), request.getDjName(), request.isZweiG(), request.isConcert());
         eventEntity = eventRepository.save(eventEntity);
         return transformEntity(eventEntity);
     }

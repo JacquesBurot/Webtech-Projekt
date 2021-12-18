@@ -18,12 +18,12 @@ public class EventEntity {
     private String djName;
 
     @Column(name = "zwei_g")
-    private boolean zweiG;
+    private Boolean zweiG;
 
     @Column(name = "concert")
-    private boolean concert;
+    private Boolean concert;
 
-    public EventEntity(String eventName, String djName, boolean zweiG) {
+    public EventEntity(String eventName, String djName, Boolean zweiG, Boolean concert) {
         this.eventName = eventName;
         this.djName = djName;
         this.zweiG = zweiG;
@@ -45,11 +45,11 @@ public class EventEntity {
         return djName;
     }
 
-    public boolean isZweiG() {
+    public Boolean isZweiG() {
         return zweiG;
     }
 
-    public boolean isConcert() {
+    public Boolean isConcert() {
         return concert;
     }
 
@@ -61,11 +61,11 @@ public class EventEntity {
         this.djName = djName;
     }
 
-    public void setZweiG(boolean zweiG) {
+    public void setZweiG(Boolean zweiG) {
         this.zweiG = zweiG;
     }
 
-    public void setConcert(boolean concert) {
+    public void setConcert(Boolean concert) {
         this.concert = concert;
     }
 
