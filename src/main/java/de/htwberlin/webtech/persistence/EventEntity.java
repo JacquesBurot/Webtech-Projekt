@@ -23,11 +23,31 @@ public class EventEntity {
     @Column(name = "concert")
     private Boolean concert;
 
-    public EventEntity(String eventName, String djName, Boolean zweiG, Boolean concert) {
+    @Column(name = "stadt")
+    private String stadt;
+
+    @Column(name = "postleitzahl")
+    private int postleitzahl;
+
+    @Column(name = "straße")
+    private String straße;
+
+    @Column(name = "hausnmr")
+    private int hausnmr;
+
+    @Column(name = "uhrzeit")
+    private String uhrzeit;
+
+    public EventEntity(String eventName, String djName, Boolean zweiG, Boolean concert, String stadt, int postleitzahl, String straße, int hausnmr, String uhrzeit) {
         this.eventName = eventName;
         this.djName = djName;
         this.zweiG = zweiG;
         this.concert = concert;
+        this.stadt = stadt;
+        this.postleitzahl = postleitzahl;
+        this.straße = straße;
+        this.hausnmr = hausnmr;
+        this.uhrzeit = uhrzeit;
     }
 
     protected EventEntity() {
@@ -69,7 +89,43 @@ public class EventEntity {
         this.concert = concert;
     }
 
+    public String getStadt() {
+        return stadt;
+    }
 
+    public void setStadt(String stadt) {
+        this.stadt = stadt;
+    }
 
+    public int getPostleitzahl() {
+        return postleitzahl;
+    }
 
+    public void setPostleitzahl(int postleitzahl) {
+        this.postleitzahl = postleitzahl;
+    }
+
+    public String getStraße() {
+        return straße;
+    }
+
+    public void setStraße(String straße) {
+        this.straße = straße;
+    }
+
+    public int getHausnmr() {
+        return hausnmr;
+    }
+
+    public void setHausnmr(int hausnmr) {
+        this.hausnmr = hausnmr;
+    }
+
+    public String getUhrzeit() {
+        return uhrzeit;
+    }
+
+    public void setUhrzeit(String uhrzeit) {
+        this.uhrzeit = uhrzeit;
+    }
 }

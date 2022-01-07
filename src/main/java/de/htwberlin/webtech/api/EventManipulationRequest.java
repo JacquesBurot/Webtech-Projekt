@@ -5,12 +5,22 @@ public class EventManipulationRequest {
     private String djName;
     private boolean zweiG;
     private boolean concert;
+    private String stadt;
+    private int postleitzahl;
+    private String straße;
+    private int hausnmr;
+    private String uhrzeit;
 
-    public EventManipulationRequest(String eventName, String djName, boolean zweiG, boolean concert) {
+    public EventManipulationRequest(String eventName, String djName, boolean zweiG, boolean concert, String stadt, int postleitzahl, String straße, int hausnmr, String uhrzeit) {
         this.eventName = eventName;
         this.djName = djName;
         this.zweiG = zweiG;
         this.concert = concert;
+        this.stadt = stadt;
+        this.postleitzahl = postleitzahl;
+        this.straße = straße;
+        this.hausnmr = hausnmr;
+        this.uhrzeit = uhrzeit;
     }
 
     public EventManipulationRequest() {}
@@ -45,7 +55,43 @@ public class EventManipulationRequest {
 
     public boolean isConcert(){ return concert;}
 
+    public String getStadt() {
+        return stadt;
+    }
 
+    public int getPostleitzahl() {
+        return postleitzahl;
+    }
 
+    public String getStraße() {
+        return straße;
+    }
 
+    public int getHausnmr() {
+        return hausnmr;
+    }
+
+    public String getUhrzeit() {
+        return uhrzeit;
+    }
+
+    public void setStadt(String stadt) {
+        this.stadt = stadt;
+    }
+
+    public void setPostleitzahl(int postleitzahl) {
+        this.postleitzahl = postleitzahl;
+    }
+
+    public void setStraße(String straße) {
+        this.straße = straße;
+    }
+
+    public void setHausnmr(int hausnmr) {
+        this.hausnmr = hausnmr;
+    }
+
+    public void setUhrzeit(String uhrzeit) {
+        this.uhrzeit = uhrzeit;
+    }
 }
