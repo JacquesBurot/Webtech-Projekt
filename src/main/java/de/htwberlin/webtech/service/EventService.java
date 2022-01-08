@@ -31,7 +31,7 @@ public class EventService {
     }
 
     public Event create(EventManipulationRequest request) {
-        var eventEntity = new EventEntity(request.getEventName(), request.getDjName(), request.isZweiG(), request.isConcert(), request.getStadt(), request.getPostleitzahl(), request.getStraße(), request.getHausnmr(), request.getUhrzeit());
+        var eventEntity = new EventEntity(request.getEventName(), request.getDjName(), request.isZweiG(), request.isConcert(), request.getStadt(), request.getPostleitzahl(), request.getStraße(), request.getHausnmr(), request.getUhrzeit(), request.getDatum(), request.getPromolink());
         eventEntity = eventRepository.save(eventEntity);
         return transformEntity(eventEntity);
     }
@@ -52,6 +52,8 @@ public class EventService {
         eventEntity.setStraße(request.getStraße());
         eventEntity.setHausnmr(request.getHausnmr());
         eventEntity.setUhrzeit(request.getUhrzeit());
+        eventEntity.setDatum(request.getDatum());
+        eventEntity.setPromolink(request.getPromolink());
         eventEntity = eventRepository.save(eventEntity);
 
         return transformEntity(eventEntity);
@@ -78,7 +80,9 @@ public class EventService {
                 eventEntity.getPostleitzahl(),
                 eventEntity.getStraße(),
                 eventEntity.getHausnmr(),
-                eventEntity.getUhrzeit()
+                eventEntity.getUhrzeit(),
+                eventEntity.getDatum(),
+                eventEntity.getPromolink()
 
         );
     }

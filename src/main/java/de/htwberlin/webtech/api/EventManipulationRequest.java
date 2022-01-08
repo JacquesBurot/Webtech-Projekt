@@ -1,5 +1,7 @@
 package de.htwberlin.webtech.api;
 
+import java.text.SimpleDateFormat;
+
 public class EventManipulationRequest {
     private String eventName;
     private String djName;
@@ -10,8 +12,10 @@ public class EventManipulationRequest {
     private String straße;
     private int hausnmr;
     private String uhrzeit;
+    private SimpleDateFormat datum;
+    private String promolink;
 
-    public EventManipulationRequest(String eventName, String djName, boolean zweiG, boolean concert, String stadt, int postleitzahl, String straße, int hausnmr, String uhrzeit) {
+    public EventManipulationRequest(String eventName, String djName, boolean zweiG, boolean concert, String stadt, int postleitzahl, String straße, int hausnmr, String uhrzeit, SimpleDateFormat datum, String promolink) {
         this.eventName = eventName;
         this.djName = djName;
         this.zweiG = zweiG;
@@ -21,6 +25,8 @@ public class EventManipulationRequest {
         this.straße = straße;
         this.hausnmr = hausnmr;
         this.uhrzeit = uhrzeit;
+        this.datum = datum;
+        this.promolink = promolink;
     }
 
     public EventManipulationRequest() {}
@@ -93,5 +99,21 @@ public class EventManipulationRequest {
 
     public void setUhrzeit(String uhrzeit) {
         this.uhrzeit = uhrzeit;
+    }
+
+    public SimpleDateFormat getDatum() {
+        return datum;
+    }
+
+    public void setDatum(SimpleDateFormat datum) {
+        this.datum = datum;
+    }
+
+    public String getPromolink() {
+        return promolink;
+    }
+
+    public void setPromolink(String promolink) {
+        this.promolink = promolink;
     }
 }

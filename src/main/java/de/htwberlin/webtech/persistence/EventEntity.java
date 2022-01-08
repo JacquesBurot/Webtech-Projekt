@@ -1,6 +1,7 @@
 package de.htwberlin.webtech.persistence;
 
 import javax.persistence.*;
+import java.text.SimpleDateFormat;
 
 @Entity(name = "events")
 public class EventEntity {
@@ -38,7 +39,14 @@ public class EventEntity {
     @Column(name = "uhrzeit")
     private String uhrzeit;
 
-    public EventEntity(String eventName, String djName, Boolean zweiG, Boolean concert, String stadt, int postleitzahl, String straße, int hausnmr, String uhrzeit) {
+    @Column(name = "datum")
+    private SimpleDateFormat datum;
+
+    @Column(name = "promolink")
+    private String promolink;
+
+
+    public EventEntity(String eventName, String djName, Boolean zweiG, Boolean concert, String stadt, int postleitzahl, String straße, int hausnmr, String uhrzeit, SimpleDateFormat datum, String promolink) {
         this.eventName = eventName;
         this.djName = djName;
         this.zweiG = zweiG;
@@ -48,6 +56,8 @@ public class EventEntity {
         this.straße = straße;
         this.hausnmr = hausnmr;
         this.uhrzeit = uhrzeit;
+        this.datum = datum;
+        this.promolink = promolink;
     }
 
     protected EventEntity() {
@@ -127,5 +137,21 @@ public class EventEntity {
 
     public void setUhrzeit(String uhrzeit) {
         this.uhrzeit = uhrzeit;
+    }
+
+    public SimpleDateFormat getDatum() {
+        return datum;
+    }
+
+    public void setDatum(SimpleDateFormat datum) {
+        this.datum = datum;
+    }
+
+    public String getPromolink() {
+        return promolink;
+    }
+
+    public void setPromolink(String promolink) {
+        this.promolink = promolink;
     }
 }

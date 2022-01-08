@@ -2,6 +2,7 @@ package de.htwberlin.webtech.api;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.text.SimpleDateFormat;
 
 
 public class Event {
@@ -16,10 +17,12 @@ public class Event {
     private String straße;
     private int hausnmr;
     private String uhrzeit;
+    private SimpleDateFormat datum;
+    private String promolink;
 
 
 
-    public Event(long id, String eventName, String djName, boolean zweiG, boolean concert, String stadt, int postleitzahl, String straße, int hausnmr, String uhrzeit) {
+    public Event(long id, String eventName, String djName, boolean zweiG, boolean concert, String stadt, int postleitzahl, String straße, int hausnmr, String uhrzeit, SimpleDateFormat datum, String promolink) {
         this.id = id;
         this.eventName = eventName;
         this.djName = djName;
@@ -30,6 +33,8 @@ public class Event {
         this.straße = straße;
         this.hausnmr = hausnmr;
         this.uhrzeit = uhrzeit;
+        this.datum = datum;
+        this.promolink = promolink;
     }
 
     public Event() {
@@ -119,5 +124,21 @@ public class Event {
 
     public void setUhrzeit(String uhrzeit) {
         this.uhrzeit = uhrzeit;
+    }
+
+    public SimpleDateFormat getDatum() {
+        return datum;
+    }
+
+    public void setDatum(SimpleDateFormat datum) {
+        this.datum = datum;
+    }
+
+    public String getPromolink() {
+        return promolink;
+    }
+
+    public void setPromolink(String promolink) {
+        this.promolink = promolink;
     }
 }
