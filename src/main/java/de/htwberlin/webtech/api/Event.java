@@ -17,12 +17,12 @@ public class Event {
     private String straße;
     private int hausnmr;
     private String uhrzeit;
-    private SimpleDateFormat datum;
+    private String datum;
     private String promolink;
 
 
 
-    public Event(long id, String eventName, String djName, boolean zweiG, boolean concert, String stadt, int postleitzahl, String straße, int hausnmr, String uhrzeit, SimpleDateFormat datum, String promolink) {
+    public Event(long id, String eventName, String djName, boolean zweiG, boolean concert, String stadt, int postleitzahl, String straße, int hausnmr, String uhrzeit, String datum, String promolink) {
         this.id = id;
         this.eventName = eventName;
         this.djName = djName;
@@ -126,11 +126,11 @@ public class Event {
         this.uhrzeit = uhrzeit;
     }
 
-    public SimpleDateFormat getDatum() {
+    public String getDatum() {
         return datum;
     }
 
-    public void setDatum(SimpleDateFormat datum) {
+    public void setDatum(String datum) {
         this.datum = datum;
     }
 

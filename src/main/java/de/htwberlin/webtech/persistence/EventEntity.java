@@ -40,13 +40,13 @@ public class EventEntity {
     private String uhrzeit;
 
     @Column(name = "datum")
-    private SimpleDateFormat datum;
+    private String datum;
 
     @Column(name = "promolink")
     private String promolink;
 
 
-    public EventEntity(String eventName, String djName, Boolean zweiG, Boolean concert, String stadt, int postleitzahl, String straße, int hausnmr, String uhrzeit, SimpleDateFormat datum, String promolink) {
+    public EventEntity(String eventName, String djName, Boolean zweiG, Boolean concert, String stadt, int postleitzahl, String straße, int hausnmr, String uhrzeit, String datum, String promolink) {
         this.eventName = eventName;
         this.djName = djName;
         this.zweiG = zweiG;
@@ -139,11 +139,11 @@ public class EventEntity {
         this.uhrzeit = uhrzeit;
     }
 
-    public SimpleDateFormat getDatum() {
+    public String getDatum() {
         return datum;
     }
 
-    public void setDatum(SimpleDateFormat datum) {
+    public void setDatum(String datum) {
         this.datum = datum;
     }
 
