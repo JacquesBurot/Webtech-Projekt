@@ -1,18 +1,37 @@
 package de.htwberlin.webtech.api;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 import java.text.SimpleDateFormat;
 
 public class EventManipulationRequest {
+
+    @NotBlank(message = "The Event name must not be empty!")
     private String eventName;
+
+    @NotBlank(message = "The DJ name must not be empty!")
     private String djName;
+
+    @NotBlank(message = "The Stadt must not be empty!")
+    private String stadt;
+
+    @NotBlank(message = "The Straße must not be empty!")
+    private String straße;
+
+    @Min(1)
+    @NotBlank(message = "The Hausnummer must not be 0!")
+    private int hausnmr;
+
+    @NotBlank(message = "The Uhrzeit must not be empty!")
+    private String uhrzeit;
+
+    @NotBlank(message = "The Datum must not be empty!")
+    private String datum;
+
+
     private boolean zweiG;
     private boolean concert;
-    private String stadt;
     private int postleitzahl;
-    private String straße;
-    private int hausnmr;
-    private String uhrzeit;
-    private String datum;
     private String promolink;
 
     public EventManipulationRequest(String eventName, String djName, boolean zweiG, boolean concert, String stadt, int postleitzahl, String straße, int hausnmr, String uhrzeit, String datum, String promolink) {
