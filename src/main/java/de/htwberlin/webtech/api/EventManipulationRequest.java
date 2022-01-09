@@ -18,8 +18,7 @@ public class EventManipulationRequest {
     @NotBlank(message = "The Straße must not be empty!")
     private String straße;
 
-    @Min(1)
-    @NotBlank(message = "The Hausnummer must not be 0!")
+    @Min(value = 1, message = "The Hausnummer must not be lower than 1!")
     private int hausnmr;
 
     @NotBlank(message = "The Uhrzeit must not be empty!")
