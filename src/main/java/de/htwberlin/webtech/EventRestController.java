@@ -32,9 +32,14 @@ public class EventRestController {
 
     @PostMapping(path = "/api/v1/events")
     public ResponseEntity<Void> createEvent(@RequestBody EventManipulationRequest request) throws URISyntaxException {
-        var event = eventService.create(request);
-        URI uri = new URI("/api/v1/events/" + event.getId());
-        return ResponseEntity.created(uri).build();
+        var valid = validate(request);
+        if(valid) {
+            var event = eventService.create(request);
+            URI uri = new URI("/api/v1/events/" + event.getId());
+            return ResponseEntity.created(uri).build();
+        }else{
+            return ResponseEntity.badRequest().build();
+        }
     }
 
     @PutMapping(path = "/api/v1/events/{id}")
@@ -47,5 +52,21 @@ public class EventRestController {
     public ResponseEntity<Void> deleteEvent(@PathVariable Long id) {
         boolean successful = eventService.deleteById(id);
         return successful? ResponseEntity.ok().build() : ResponseEntity.notFound().build();
+    }
+
+    private boolean validate(EventManipulationRequest request){
+        return request.getEventName() != null
+            && !request.getEventName().isBlank()
+            && request.getDjName() != null
+            && !request.getDjName().isBlank()
+            && request.getStadt() != null
+            && !request.getStadt().isBlank()
+            && request.getStraße() != null
+            && !request.getStraße().isBlank()
+            && request.getHausnmr() != 0
+            && request.getDatum() != null
+            && !request.getDatum().isBlank()
+            && request.getUhrzeit() != null
+            && !request.getUhrzeit().isBlank();
     }
 }
